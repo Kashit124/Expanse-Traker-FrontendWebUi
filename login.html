@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker - Auth</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <!-- Error Alert Box -->
+        <div id="error-alert" class="hidden mb-4 p-3 bg-red-100 text-red-700 text-sm rounded"></div>
+
+        <!-- ================= LOGIN FORM ================= -->
+        <div id="login-container">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Welcome Back</h2>
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" required class="w-full mt-1 p-2 border rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" required class="w-full mt-1 p-2 border rounded-md">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Sign In</button>
+            </form>
+            <p class="text-sm text-center mt-4 text-gray-600">
+                Don't have an account? 
+                <button onclick="toggleAuthMode()" class="text-blue-600 font-medium hover:underline">Register</button>
+            </p>
+        </div>
+
+        <!-- ================= REGISTER FORM (Initially Hidden) ================= -->
+        <div id="register-container" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Create Account</h2>
+            <form id="register-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="reg-name" required class="w-full mt-1 p-2 border rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="reg-email" required class="w-full mt-1 p-2 border rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="reg-password" required class="w-full mt-1 p-2 border rounded-md">
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700">Sign Up</button>
+            </form>
+            <p class="text-sm text-center mt-4 text-gray-600">
+                Already have an account? 
+                <button onclick="toggleAuthMode()" class="text-blue-600 font-medium hover:underline">Sign In</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Simple toggle function to switch between Login and Register views
+        function toggleAuthMode() {
+            const loginBox = document.getElementById('login-container');
+            const registerBox = document.getElementById('register-container');
+            loginBox.classList.toggle('hidden');
+            registerBox.classList.toggle('hidden');
+            document.getElementById('error-alert').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

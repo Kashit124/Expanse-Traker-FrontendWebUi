@@ -1,0 +1,9 @@
+/* Custom styles or overrides if needed */
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Smooth transitions for modals and buttons */
+input, select, button {
+    transition: all 0.2s ease-in-out;
+}
